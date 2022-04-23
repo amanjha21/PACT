@@ -1,8 +1,9 @@
 import { Hidden } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SimpleMap from "../components/SimpleMap";
 import TopBar from "../components/TopBar/TopBar";
 import { useNavigate } from "react-router-dom";
+
 const AnyReactComponent = ({ text, onClick }) => (
   <div
     onClick={onClick}
@@ -33,6 +34,7 @@ const AnyReactComponent = ({ text, onClick }) => (
     </div>
   </div>
 );
+
 const HomePage = () => {
   const [position, setPosition] = useState({});
 
