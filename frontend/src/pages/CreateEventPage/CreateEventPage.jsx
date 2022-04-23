@@ -15,7 +15,48 @@ const CreateEventPage = () => {
   const [currentFund, setCurrentFund] = useState("");
   const [document, setDocument] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    const data = new FormData();
+    data.append("title", title);
+    data.append("description", desc);
+    data.append("contactEmail", contactEmail);
+    data.append("contactPhone", contactPhone);
+    data.append("pinCode", pinCode);
+    data.append("latitude", lat);
+    data.append("longitude", lng);
+    data.append("target", target);
+    data.append("currentFund", currentFund);
+    const newImageList = [image, document];
+    console.log(newImageList);
+  };
+
+  const imageInputChangeHandler = (e) => {
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    console.log(file);
+    e.target.value = null;
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const documentInputChangeHandler = (e) => {
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    console.log(file);
+    e.target.value = null;
+    reader.onloadend = () => {
+      setDocument(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div>
@@ -36,7 +77,7 @@ const CreateEventPage = () => {
         <input
           type="file"
           placeholder="Image related to event"
-          onChange={(e) => setImage(e.target.value)}
+          onChange={imageInputChangeHandler}
           className="formElement"
         />
         <input
@@ -72,7 +113,7 @@ const CreateEventPage = () => {
         <input
           type="file"
           placeholder="Please upload a document for proof"
-          onChange={(e) => setDocument(e.target.value)}
+          onChange={documentInputChangeHandler}
           className="formElement"
         />
         <button type="submit" onClick={handleSubmit} className="form-btn">

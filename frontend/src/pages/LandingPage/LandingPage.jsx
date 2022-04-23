@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -23,7 +22,8 @@ const LandingPage = () => {
             <button
               className="landing-card__btn"
               onClick={() =>
-                (window.location.href = "http://localhost:5000/auth/google")
+                (window.location.href =
+                  "https://pcon-kalyan.herokuapp.com/auth/google")
               }
             >
               Login

@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopBar from "../../components/TopBar/TopBar";
 import "./Profile.css";
+import { getUserByEmail } from "../../api/userData";
 
-const Profile = ({
-  imageLink = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-  name = "Vinamra Singh",
-  email = "vinam115@gmail.com",
-  points = "6",
-}) => {
+const Profile = () => {
+  const [userData, setUserData] = useState(null);
+  const email = localStorage.getItem("email");
+
+  const loadData = async () => {
+    const data = await getUserByEmail(email);
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, [email]);
+
+  if (!userData) {
+    return <div>No such user found</div>;
+  }
+
   return (
     <>
       <TopBar />
       <div className="profile-card">
         <div className="profile-card__img">
-          <img className="profile__img" src={imageLink} alt="profile card" />
+          <img
+            className="profile__img"
+            src={userData.image}
+            alt="profile card"
+          />
         </div>
         <div className="profile-card__cnt">
-          <div className="profile-card__name">{name}</div>
-          <div className="profile-card__email">{email}</div>
+          <div className="profile-card__name">{userData.name}</div>
+          <div className="profile-card__email">{userData.email}</div>
           <div className="profile-card__points">
-            <strong>Points:{points}</strong>
+            <strong>Points:{userData.points}</strong>
           </div>
         </div>
         <div className="profile-card__ctr">

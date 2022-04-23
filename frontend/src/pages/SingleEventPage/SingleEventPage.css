@@ -123,9 +123,11 @@
 }
 
 .progress-btn-pay {
-  background: rgb(14, 247, 14);
+  background: rgb(67, 206, 67);
+  color: white;
 }
 
 .progress-btn-delete {
   background: red;
+  color: white;
 }

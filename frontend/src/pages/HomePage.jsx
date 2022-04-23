@@ -37,6 +37,11 @@ const AnyReactComponent = ({ text, onClick }) => (
 
 const HomePage = () => {
   const [position, setPosition] = useState({});
+  const email = window.location.pathname.split("/").pop();
+
+  useEffect(() => {
+    localStorage.setItem("email", email);
+  });
 
   function getLocation() {
     if (navigator.geolocation) {

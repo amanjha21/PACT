@@ -20,6 +20,7 @@ function App() {
           <Route path="/event/:id" element={<SingleEventPage />} />
           <Route path="/createevent" element={<CreateEventPage />} />
           <Route path="/user/:id" element={<Profile />} />
+          <Route path="/home/:email" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </>

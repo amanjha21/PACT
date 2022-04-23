@@ -13,6 +13,7 @@
 }
 
 .form-btn {
+  background: rgb(49, 133, 216);
   display: flex;
   margin: auto;
   width: 10vw;
@@ -21,5 +22,8 @@
   margin-top: 50px;
   justify-content: center;
   align-items: center;
-  border-radius: 10%;
+  border-radius: 8%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
