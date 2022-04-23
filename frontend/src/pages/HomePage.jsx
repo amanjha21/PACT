@@ -45,7 +45,6 @@ const HomePage = () => {
   }
 
   function showPosition(position) {
-    console.log(position.coords.latitude, position.coords.longitude);
     setPosition({
       // lat: position.coords.latitude - 7.639,
       // lng: position.coords.longitude + 1.61,
