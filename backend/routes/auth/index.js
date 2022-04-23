@@ -29,7 +29,7 @@ router.get(
       email = dbUser.email;
     }
 
-    res.redirect(`http://localhost:3000/home?email=${email}`);
+    res.redirect(`http://localhost:3000/home/${email}`);
   }
 );
 
